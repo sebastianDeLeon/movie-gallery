@@ -1,0 +1,8 @@
+extends layouts/user
+
+block contend
+    each val in p
+        - let orden = val.link
+        div(class="cartelera")
+            label= val.titulo
+            img(src=val.poster, alt="cartelera" , onclick=("verTrailer('"+orden+"')"))

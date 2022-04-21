@@ -1,0 +1,10 @@
+extends layouts/main
+
+block contend
+    each val in p
+        - let orden = val.link
+        div(class="cartelera")
+            label= val.titulo
+            img(src=val.poster, alt="cartelera" , onclick=("verTrailer('"+orden+"')"))
+            a(class="buttonEdit" href=("/edit/"+val._id)) Editar 
+            a(class="buttonDel" href=("/delete/"+val._id)) Borrar 

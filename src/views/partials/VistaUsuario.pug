@@ -1,0 +1,16 @@
+div(class="trailer" id="video-trailer")
+        div(class="trailer-con")
+            
+                
+
+
+        
+div(class="contenedor" id="con")
+            
+
+                
+    each val in p
+        - let orden = val.link
+                div(class="cartelera")
+                    label= val.titulo
+                    img(src=val.poster, alt="cartelera" , onclick=("verTrailer('"+orden+"','"+val.director+"','"+val.titulo+"','"+val.reseña+"','"+val.año+"','"+val.actores+"')"))

@@ -1,0 +1,50 @@
+extends layouts/main
+
+block contend
+
+    div(class="form-style")
+        form(action=("/edit/"+e.id) method="POST"  id="formulario")
+        
+            fieldset(name = "field")
+                div 
+                    label(for="director" ) Director
+                div
+                    input(type="text" id="director" name="director" value = e.director) 
+
+                div
+                    label(for="titulo") Nombre de la pelicula
+                div
+                    input(type="text" id="titulo" name="titulo" value = e.titulo) 
+
+                div 
+                    label(for="link") Link de la pelicula 
+                div
+                    input(type="text" id="link" name="link" value = e.link)  
+
+                div
+                    label(for="reseña") reseña
+                div
+                    textarea(name="reseña" id="reseña", cols="30", rows="10") #{e.reseña}
+                
+                div
+                    label(for="año") año
+                div
+                    input(type="number" id="año" name="año" value = e.año)
+                
+                div
+                    label(for="poster") poster
+                div 
+                    input(type="url" id="add-poster" name="poster" value = e.poster) 
+
+                div
+                    label(for="actores") actores
+                div(id = "div-actores")
+                    each actor in e.actores
+                        input(type="text" id="actores" name="actores" value = actor) 
+
+                div 
+                    p(id="añadirActor" class="buttonEdit") Añadir actor
+                br
+                div
+                    button(class="buttonEdit") Actualizar
+            

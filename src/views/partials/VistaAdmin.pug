@@ -1,0 +1,24 @@
+div(class="trailer" id="video-trailer")
+        div(class="trailer-con")     
+                
+
+
+        
+div(class="contenedor" id="con")
+
+        
+        
+        div(class="cartelera" id="agregar-div")
+                <label for="">Añadir pelicula</label>
+                <span class="agregar"  id="agregar">+</span>
+        
+                
+        
+        
+        each val in p
+                - let orden = val.link
+                div(class="cartelera")
+                        label= val.titulo
+                        img(src=val.poster, alt="cartelera" , onclick=("verTrailer('"+orden+"','"+val.director+"','"+val.titulo+"','"+val.reseña+"','"+val.año+"','"+val.actores+"')"))
+                        a(class="buttonEdit" href=("/edit/"+val._id)) Editar 
+                        a(class="buttonDel" href=("/delete/"+val._id)) Borrar 

@@ -1,0 +1,44 @@
+form(action="/Pelicula/Add" method="POST" class="form-style-5" id="formulario")
+    span(class="cerrar" onclick="cerrarF()") X 
+    fieldset(name = "field")
+        div 
+            label(for="director") Director
+        div
+            input(type="text" id="director" name="director") 
+
+        div
+            label(for="titulo") Nombre de la pelicula
+        div
+            input(type="text" id="titulo" name="titulo") 
+
+        div 
+            label(for="link") Link de la pelicula 
+        div
+            input(type="text" id="link" name="link")  
+
+        div
+            label(for="reseña") reseña
+        div
+            input(type="text" id="reseña" name="reseña")
+        
+        div
+            label(for="año") año
+        div
+            input(type="number" id="año" name="año")
+        
+        div
+            label(for="poster") poster
+        div 
+            input(type="url" id="add-poster" name="poster") 
+
+        div
+            label(for="actores") actores
+        div(id = "div-actores")
+            input(type="text" id="actores" name="actores") 
+
+        div 
+            p(id="añadirActor" class="buttonEdit") Añadir actor
+        br
+        div
+            button(class="buttonEdit") Add
+    

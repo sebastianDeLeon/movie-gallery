@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        style 
+            include ../css/style.css
+
+    header
+        nav 
+
+            form(action="/Buscar" method="POST"  id="formularioBuscar")
+                input(type="text" id="NombrePeli" name="titulo") 
+
+                button(class="buttonEdit") Buscar
+    body 
+
+        div(class="full-trailer" id="trailerDiv")
+            
+                div(class="peli-info")
+                    fieldset 
+                        h2 Director
+                        p(id="DirectorT")
+                        h2 Titulo
+                        p(id="TituloT")
+                        h2 Reseña
+                        p(id="ReseñaT")
+                        h2 Año
+                        p(id="AñoT") 
+                        h2 Actores
+                        p(id="ActoresT") d
+
+                        
+            
+                div(class="peli-trailer")
+                    iframe(src="https://www.youtube.com/embed/fWQrd6cwJ0A"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen 
+                        id = "trailerV")
+                span(id="fullTspan") X
+            
+                
+
+        block contend
+
+        script
+            include ../funcionesjs/jquery-3.6.0.min.js
+    
+        script
+            include ..//funcionesjs/Funciones.js
