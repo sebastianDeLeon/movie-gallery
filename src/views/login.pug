@@ -1,0 +1,21 @@
+extends layouts/user
+
+block contend
+
+    body 
+        form(action="/login" method="POST" class="form-style" id="formularioR")
+            fieldset(name = "field")
+                div 
+                    label(for="nombreU") Nombre de usuario
+                div
+                    input(type="text" id="nombreU" name="nombreU" required) 
+
+                div
+                    label(for="contraseña") Contraseña
+                div
+                    input(type="password" id="contraseña" name="contraseñaU" required) 
+
+                br
+                div
+                    button(class="buttonEdit") login
+            

@@ -1,0 +1,26 @@
+extends layouts/user
+
+block contend
+
+    body 
+        form(action="/Registro" method="POST" class="form-style" id="formularioR")
+            fieldset(name = "field")
+                div 
+                    label(for="nombreU") Nombre de usuario
+                div
+                    input(type="text" id="nombreU" name="nombre" textContent=nombre required) 
+
+                div
+                    label(for="contraseña") Contraseña
+                div
+                    input(type="password" id="contraseña" name="contraseña" textContent=contraseña required) 
+
+                div 
+                    label(for="email") Email
+                div
+                    input(type="email" id="email" name="email" textContent=email required)  
+
+                br
+                div
+                    button(class="buttonEdit") Registrarse
+            

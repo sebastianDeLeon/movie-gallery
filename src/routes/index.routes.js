@@ -1,5 +1,6 @@
 import e, { Router } from "express";
-import Pelicula from "../models/Pelicula";
+import Pelicula,{usuario} from "../models/Pelicula";
+import passport from "passport";
 
 //controllers
 import { vistaAdmin } from "../controllers/getAdmin";
@@ -8,13 +9,65 @@ const router = Router();
 //registro
 router.get("/Registro", async (req, res) => {
   try {
-    const p = await Pelicula.find().lean();
-  
-    res.render("sighup", { p });
+    res.render("registrar");
   } catch (error) {
-    
+    alert(error);
   }
 });
+
+router.post("/Registro", async (req, res) => {
+  try {
+
+    const {nombre,contraseña,email} = req.body
+    const errors =[]
+
+    if(nombre.lenght <=0){
+      errors.push({text:'por favor introduzca su nombre'})
+    }
+    if(contraseña.lenght <=4){
+      errors.push({text:'la constraseña debe tener almenos 5 digitos'})
+    }
+    if(errors.length > 0){
+      res.render("Registro",{errors,nombre,contraseña,email})
+    }
+    // const user = usuario(req.body);
+    // await user.save();
+    else{
+    const user = usuario(req.body);
+    user.contraseña = await user.encryptar(contraseña)
+    await user.save();
+
+
+    res.redirect("login");
+  }
+  } catch (error) {
+    alert(error);
+  }
+});
+
+//Login
+
+router.get("/login", async (req, res) => {
+  try {
+    res.render("login")
+  } catch (error) {
+    alert(error);
+  }
+});
+
+router.post("/login", async(req,res)=>{
+  const {nombre,contraseña} = req.body
+    const us = await usuario.findOne(nombre)
+    const co = await usuario.findOne(contraseña)
+    if((nombre===us)&(contraseña===co)){
+      res.redirect("/")
+    }
+    else{
+      res.render("login")
+    }
+    
+  
+} );
 
 //Cargar
 router.get("/", async (req, res) => {

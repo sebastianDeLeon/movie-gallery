@@ -5,4 +5,4 @@ block contend
         - let orden = val.link
         div(class="cartelera")
             label= val.titulo
-            img(src=val.poster, alt="cartelera" , onclick=("verTrailer('"+orden+"')"))
+            img(src=val.poster, alt="cartelera" ,  onclick=("verTrailer('"+orden+"','"+val.director+"','"+val.titulo+"','"+val.reseña+"','"+val.año+"','"+val.actores+"')"))
